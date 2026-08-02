@@ -25,6 +25,12 @@ func TestHello(t *testing.T) {
 		want := "Hola, Elodie"
 		assertCorrectMessage(t, got, want)
 	})
+
+	t.Run("in French", func(t *testing.T) {
+		got := Hello("Santi", "French")
+		want := "Bonjour, Santi"
+		assertCorrectMessage(t, got, want)
+	})
 }
 
 // ตัวเล็ก private func

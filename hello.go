@@ -4,10 +4,16 @@ import (
 	"fmt"
 )
 
-const spanish = "Spanish"
+const (
+	spanish = "Spanish"
+	french  = "French"
+)
 
-const englishHelloPrefix = "Hello, "
-const spanishHelloPrefix = "Hola, "
+const (
+	englishHelloPrefix = "Hello, "
+	spanishHelloPrefix = "Hola, "
+	frenchHelloPrefix  = "Bonjour, "
+)
 
 // Hello รับค่า string มา 1 ค่า แล้ว return ค่า string ที่ต่อท้ายด้วย "Hello, " + name
 // เพิ่ม language เพื่อเลือกภาษาที่จะใช้
@@ -20,6 +26,11 @@ func Hello(name, language string) string {
 	if language == spanish {
 		return spanishHelloPrefix + name
 	}
+
+	if language == french {
+		return frenchHelloPrefix + name
+	}
+
 	return englishHelloPrefix + name
 }
 
