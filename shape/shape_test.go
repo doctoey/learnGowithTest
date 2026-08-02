@@ -20,7 +20,7 @@ func TestArea(t *testing.T) {
 		t.Helper()
 		got := shape.Area()
 		if got != want {
-			t.Errorf("got %g want %g", got, want)
+			t.Errorf("%#v got %g want %g", shape, got, want)
 		}
 	}
 
@@ -42,11 +42,11 @@ func TestArea(t *testing.T) {
 	// })
 
 	areaTests := []struct {
-		name  string
-		shape Shape
-		want  float64
+		name    string
+		shape   Shape
+		hasArea float64
 	}{
-		{"rectangle", Rectangle{12.0, 6.0}, 72.0},
+		{name: "rectangle", shape: Rectangle{12.0, 6.0}, hasArea: 72.0},
 		{"circle", Circle{10}, 314.1592653589793},
 	}
 
@@ -56,8 +56,12 @@ func TestArea(t *testing.T) {
 			// if got != tt.want {
 			// 	t.Errorf("got %g want %g", got, tt.want)
 			// }
-			checkArea(t, tt.shape, tt.want)
+			checkArea(t, tt.shape, tt.hasArea)
 		})
 	}
 
+	// การบ้าน สร้าง Triangle
+	// 1. สร้าง struct
+	// 2. สร้าง method Area()
+	// 3. สร้าง test
 }
