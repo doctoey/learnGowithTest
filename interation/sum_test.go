@@ -4,16 +4,19 @@ import "testing"
 
 func TestSum(t *testing.T) {
 
-	t.Run("5 number ", func(t *testing.T) {
-		numbers := []int{1, 2, 3, 4, 5}
+	// test ซำซ้อน 100% coverage อยู่แล้ว ถึงแม้ comment อันนี้ไป
+	// go test -cover
 
-		got := Sum(numbers)
-		want := 15
+	// t.Run("5 number ", func(t *testing.T) {
+	// 	numbers := []int{1, 2, 3, 4, 5}
 
-		if got != want {
-			t.Errorf("got %d want %d given, %v", got, want, numbers)
-		}
-	})
+	// 	got := Sum(numbers)
+	// 	want := 15
+
+	// 	if got != want {
+	// 		t.Errorf("got %d want %d given, %v", got, want, numbers)
+	// 	}
+	// })
 
 	t.Run("any number ", func(t *testing.T) {
 		numbers := []int{1, 2, 3}
