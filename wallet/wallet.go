@@ -2,8 +2,10 @@ package wallet
 
 import "fmt"
 
+type Bitcoin int
+
 type Wallet struct {
-	balance int
+	balance Bitcoin
 }
 
 // ก่อนใช้ pointer
@@ -18,11 +20,11 @@ type Wallet struct {
 // หลักการของ pointer
 // 1. * คือการ dereference คือการเข้าถึงค่าของ pointer
 // 2. & คือการ reference คือการเข้าถึง address ของตัวแปร
-func (w *Wallet) Deposit(amount int) {
+func (w *Wallet) Deposit(amount Bitcoin) {
 	fmt.Printf("address of balance in Deposit is %p \n", &w.balance)
 	w.balance += amount
 }
 
-func (w *Wallet) Balance() int {
+func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }
