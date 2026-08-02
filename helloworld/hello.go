@@ -1,11 +1,12 @@
 package main
 
 import (
-	"log"
+	// "log"
 	"net/http"
 	"os"
 
 	"github.com/doctoey/learnGowithTest/di"
+	"github.com/doctoey/learnGowithTest/mocking"
 )
 
 const (
@@ -55,8 +56,12 @@ func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
 	di.Greet(w, "world")
 }
 
-func main() {
-	di.Greet(os.Stdout, "Elodie")
-	log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(MyGreeterHandler)))
+// func main() {
+// 	di.Greet(os.Stdout, "Elodie")
+// 	log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(MyGreeterHandler)))
 
+// }
+
+func main() {
+	mocking.Countdown(os.Stdout)
 }
