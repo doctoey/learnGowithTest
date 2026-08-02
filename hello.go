@@ -24,16 +24,22 @@ func Hello(name, language string) string {
 		name = "World"
 	}
 
-	prefix := englishHelloPrefix
+	return greetingPrefix(language) + name
+}
 
+// greetingPrefix รับค่า language string แล้ว return ค่า prefix string
+// @param language string - ภาษาที่จะใช้
+// @return prefix string - ค่า prefix string ที่ใช้
+func greetingPrefix(language string) (prefix string) {
 	switch language {
 	case spanish:
 		prefix = spanishHelloPrefix
 	case french:
 		prefix = frenchHelloPrefix
+	default:
+		prefix = englishHelloPrefix
 	}
-
-	return prefix + name
+	return
 }
 
 func main() {
