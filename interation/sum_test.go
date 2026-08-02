@@ -1,6 +1,9 @@
 package interation
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 
@@ -28,4 +31,23 @@ func TestSum(t *testing.T) {
 			t.Errorf("got %d want %d given, %v", got, want, numbers)
 		}
 	})
+}
+
+// We need a new function called SumAll which will take a varying number of slices,
+// returning a new slice containing the totals for each slice passed in.
+
+// For example
+// SumAll([]int{1,2}, []int{0,9}) would return []int{3, 9}
+
+// or
+
+// SumAll([]int{1,1,1}) would return []int{3}
+
+func TestSumAll(t *testing.T) {
+	got := SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+
+	if !slices.Equal(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
 }
