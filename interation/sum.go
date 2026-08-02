@@ -36,3 +36,19 @@ func SumAll(numbersTosum ...[]int) []int {
 	return sums
 
 }
+
+func SumAllTails(numbersTosum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersTosum {
+		if len(numbers) == 0 {
+			sums = append(sums, 0)
+		} else {
+			// [1:] คือ การ slice array โดยการตัดตัวแรกออก
+			// ถึง ตัวสุดท้าย เพราะไม่ระบุจำนวนสุดท้าย ก็ถึงตัวสุดท้าย
+			tail := numbers[1:]
+			sums = append(sums, Sum(tail))
+		}
+	}
+
+	return sums
+}

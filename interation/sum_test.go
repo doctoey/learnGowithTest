@@ -1,6 +1,7 @@
 package interation
 
 import (
+	"reflect"
 	"slices"
 	"testing"
 )
@@ -50,4 +51,26 @@ func TestSumAll(t *testing.T) {
 	if !slices.Equal(got, want) {
 		t.Errorf("got %v want %v", got, want)
 	}
+}
+
+func TestSumAllTails(t *testing.T) {
+	// เสมือนใช้ go test -v
+	t.Run("make the sums of some slices", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2}, []int{0, 9})
+		want := []int{2, 9}
+
+		// reflect.DeepEqual ใช้ในการเปรียบเทียบค่าที่ซับซ้อน เช่น slices, arrays, maps
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
+
+	t.Run("safely sum empty slices", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{3, 4, 5})
+		want := []int{0, 9}
+
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
+	})
 }
