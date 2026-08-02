@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+	"net/http"
 	"os"
 
 	"github.com/doctoey/learnGowithTest/di"
@@ -49,6 +51,12 @@ func greetingPrefix(language string) (prefix string) {
 // 	fmt.Println(Hello("Toey", ""))
 // }
 
+func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
+	di.Greet(w, "world")
+}
+
 func main() {
 	di.Greet(os.Stdout, "Elodie")
+	log.Fatal(http.ListenAndServe(":5001", http.HandlerFunc(MyGreeterHandler)))
+
 }
