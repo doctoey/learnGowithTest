@@ -2,6 +2,7 @@ package main
 
 import (
 	// "log"
+
 	"net/http"
 	"os"
 
@@ -63,5 +64,6 @@ func MyGreeterHandler(w http.ResponseWriter, r *http.Request) {
 // }
 
 func main() {
-	mocking.Countdown(os.Stdout)
+	sleeper := &mocking.DefaultSleeper{}
+	mocking.Countdown(os.Stdout, sleeper)
 }
