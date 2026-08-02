@@ -6,7 +6,7 @@ func TestHello(t *testing.T) {
 	// เพิ่มตัวแปร name เข้าไปในฟังก์ชัน Hello
 	// name เก็บค่า "Toey" เพื่อส่งเข้าไปในฟังก์ชัน Hello
 	t.Run("saying Hello to Toey", func(t *testing.T) {
-		got := Hello("Toey")
+		got := Hello("Toey", "")
 		want := "Hello, Toey"
 
 		// เรียกใช้ฟังก์ชัน assertCorrectMessage เพื่อตรวจสอบค่าที่ได้จากการ return
@@ -14,9 +14,15 @@ func TestHello(t *testing.T) {
 	})
 
 	t.Run("say 'Hello, World' when an empty string is supplied", func(t *testing.T) {
-		got := Hello("")
+		got := Hello("", "")
 		want := "Hello, World"
 
+		assertCorrectMessage(t, got, want)
+	})
+
+	t.Run("in Spanish", func(t *testing.T) {
+		got := Hello("Elodie", "Spanish")
+		want := "Hola, Elodie"
 		assertCorrectMessage(t, got, want)
 	})
 }
