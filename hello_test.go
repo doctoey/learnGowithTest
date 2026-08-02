@@ -3,8 +3,10 @@ package main
 import "testing"
 
 func TestHello(t *testing.T) {
-	got := Hello()
-	want := "Hello, world"
+	// เพิ่มตัวแปร name เข้าไปในฟังก์ชัน Hello
+	// name เก็บค่า "Toey" เพื่อส่งเข้าไปในฟังก์ชัน Hello
+	got := Hello("Toey")
+	want := "Hello, Toey"
 
 	if got != want {
 		// t ย่อมาจาก testing
