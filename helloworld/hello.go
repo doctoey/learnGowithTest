@@ -1,7 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"os"
+
+	"github.com/doctoey/learnGowithTest/di"
 )
 
 const (
@@ -42,7 +44,11 @@ func greetingPrefix(language string) (prefix string) {
 	return
 }
 
+// func main() {
+// 	// พิมพ์ค่าที่ return จากฟังก์ชัน Hello
+// 	fmt.Println(Hello("Toey", ""))
+// }
+
 func main() {
-	// พิมพ์ค่าที่ return จากฟังก์ชัน Hello
-	fmt.Println(Hello("Toey", ""))
+	di.Greet(os.Stdout, "Elodie")
 }
