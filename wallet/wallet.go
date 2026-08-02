@@ -8,6 +8,10 @@ type Wallet struct {
 	balance Bitcoin
 }
 
+type Stringer interface {
+	String() string
+}
+
 // ก่อนใช้ pointer
 // address of balance in Deposit is 0x4d79dcc8e0b0
 // address of balance in test is 0x4d79dcc8e0a8
@@ -27,4 +31,8 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 
 func (w *Wallet) Balance() Bitcoin {
 	return w.balance
+}
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
 }
